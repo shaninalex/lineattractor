@@ -24,42 +24,80 @@ script = ExtResource("1_jnlp7")
 script = ExtResource("2_pyidc")
 course_length = 1000
 
-[node name="Ceres" type="Node2D" parent="."]
+[node name="Ulneron" type="Node2D" parent="."]
 position = Vector2(455, 233)
 script = ExtResource("1_vvh5c")
 planet_mass = 10000.0
-planet_name = "Ceres"
+planet_name = "Ulneron"
 planet_color = Color(0.516862, 0.545617, 0.77094, 1)
 planet_size = 150.0
 
-[node name="ColorRect" type="ColorRect" parent="Ceres"]
+[node name="ColorRect" type="ColorRect" parent="Ulneron"]
 material = SubResource("ShaderMaterial_28aoi")
 offset_left = -76.0
 offset_top = -79.0
 offset_right = 74.0
 offset_bottom = 71.0
 
-[node name="Label" type="Label" parent="Ceres"]
+[node name="Label" type="Label" parent="Ulneron"]
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Enceladus" type="Node2D" parent="."]
+[node name="Silliuturn" type="Node2D" parent="."]
 position = Vector2(546, 461)
 script = ExtResource("1_vvh5c")
 speed = 30.0
 planet_mass = 1000.0
-planet_name = "Enceladus"
+planet_name = "Silliuturn"
 planet_color = Color(0.516862, 0.545617, 0.77094, 1)
 planet_size = 50.0
 
-[node name="ColorRect" type="ColorRect" parent="Enceladus"]
+[node name="ColorRect" type="ColorRect" parent="Silliuturn"]
 material = SubResource("ShaderMaterial_jnlp7")
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 
-[node name="Label" type="Label" parent="Enceladus"]
+[node name="Label" type="Label" parent="Silliuturn"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Silarvis" type="Node2D" parent="."]
+position = Vector2(-495, -530)
+script = ExtResource("1_vvh5c")
+planet_mass = 10000.0
+planet_name = "Silarvis"
+planet_color = Color(0.516862, 0.545617, 0.77094, 1)
+planet_size = 150.0
+
+[node name="ColorRect" type="ColorRect" parent="Silarvis"]
+material = SubResource("ShaderMaterial_28aoi")
+offset_left = -76.0
+offset_top = -79.0
+offset_right = 74.0
+offset_bottom = 71.0
+
+[node name="Label" type="Label" parent="Silarvis"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Lomia" type="Node2D" parent="."]
+position = Vector2(25, 981)
+script = ExtResource("1_vvh5c")
+planet_mass = 10000.0
+planet_name = "Lomia"
+planet_color = Color(0.516862, 0.545617, 0.77094, 1)
+planet_size = 150.0
+
+[node name="ColorRect" type="ColorRect" parent="Lomia"]
+material = SubResource("ShaderMaterial_28aoi")
+offset_left = -76.0
+offset_top = -79.0
+offset_right = 74.0
+offset_bottom = 71.0
+
+[node name="Label" type="Label" parent="Lomia"]
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -90,3 +128,15 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 text = "move planets"
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "zoom - mouse wheel up/down"
