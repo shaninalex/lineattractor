@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://pj8oxgiqjgf5"]
+
+[ext_resource type="Shader" uid="uid://cfebarb8qhxqv" path="res://circle.gdshader" id="1_pq8q7"]
+[ext_resource type="Script" uid="uid://dmtv83njlgh2g" path="res://planet.gd" id="1_vvh5c"]
+[ext_resource type="Script" uid="uid://bh4wmhgd1qvw3" path="res://path.gd" id="2_pyidc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyidc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvh5c"]
+shader = ExtResource("1_pq8q7")
+shader_parameter/circle_color = Color(0.141176, 0.701961, 0.631373, 1)
+shader_parameter/radius = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="Planet" type="AnimatableBody2D" parent="."]
+position = Vector2(429, 262)
+script = ExtResource("1_vvh5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet"]
+shape = SubResource("CircleShape2D_pyidc")
+
+[node name="ColorRect" type="ColorRect" parent="Planet"]
+material = SubResource("ShaderMaterial_vvh5c")
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(0.50848, 0.50848)
+
+[node name="Line2D" type="Line2D" parent="."]
+script = ExtResource("2_pyidc")
