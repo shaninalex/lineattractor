@@ -25,7 +25,7 @@ script = ExtResource("2_pyidc")
 course_length = 1000
 
 [node name="Ceres" type="Node2D" parent="."]
-position = Vector2(356, 92)
+position = Vector2(455, 233)
 script = ExtResource("1_vvh5c")
 planet_mass = 10000.0
 planet_name = "Ceres"
@@ -44,7 +44,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Enceladus" type="Node2D" parent="."]
-position = Vector2(447, 320)
+position = Vector2(546, 461)
 script = ExtResource("1_vvh5c")
 speed = 30.0
 planet_mass = 1000.0
@@ -66,34 +66,25 @@ offset_bottom = 23.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_jnlp7")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 291.0
-offset_bottom = 179.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-text = "TODO:
-- zoom
-- set path
-- adjust path
-- satelites move around planets
-- time forward/backward
-- Main star ( or a couple )"
-vertical_alignment = 2
-
 [node name="Node2D" type="Label" parent="CanvasLayer"]
+offset_left = 56.0
+offset_top = 73.0
+offset_right = 57.0
+offset_bottom = 96.0
 vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Node2D"]
-offset_top = 202.0
-offset_right = 24.0
-offset_bottom = 226.0
+offset_left = -50.0
+offset_top = -64.0
+offset_right = -26.0
+offset_bottom = -40.0
 button_pressed = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Node2D"]
-offset_left = 32.0
-offset_top = 197.0
-offset_right = 141.0
-offset_bottom = 226.0
+offset_left = -23.0
+offset_top = -69.0
+offset_right = 86.0
+offset_bottom = -40.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 text = "move planets"
