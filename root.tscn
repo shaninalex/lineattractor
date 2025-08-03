@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://pj8oxgiqjgf5"]
+[gd_scene load_steps=7 format=3 uid="uid://pj8oxgiqjgf5"]
 
-[ext_resource type="Script" uid="uid://dfh2ok1lx71wg" path="res://init_map.gd" id="1_28aoi"]
-[ext_resource type="Shader" uid="uid://cfebarb8qhxqv" path="res://circle.gdshader" id="1_pq8q7"]
-[ext_resource type="Script" uid="uid://s7w5cob65u8h" path="res://planet_item.gd" id="1_vvh5c"]
-[ext_resource type="Script" uid="uid://bh4wmhgd1qvw3" path="res://path.gd" id="2_pyidc"]
-[ext_resource type="Script" uid="uid://n3h8mc6l6pp1" path="res://controller.gd" id="5_jnlp7"]
+[ext_resource type="Shader" uid="uid://cfebarb8qhxqv" path="res://materials/circle.gdshader" id="1_pq8q7"]
+[ext_resource type="Script" uid="uid://s7w5cob65u8h" path="res://core/planet_item.gd" id="1_vvh5c"]
+[ext_resource type="Script" uid="uid://bh4wmhgd1qvw3" path="res://core/path.gd" id="2_pyidc"]
+[ext_resource type="Script" uid="uid://n3h8mc6l6pp1" path="res://core/controller.gd" id="5_jnlp7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_28aoi"]
 shader = ExtResource("1_pq8q7")
@@ -15,7 +14,6 @@ shader = ExtResource("1_pq8q7")
 shader_parameter/circle_color = Color(0.240615, 0.378152, 0.999994, 1)
 
 [node name="MapRoot" type="Node2D"]
-script = ExtResource("1_28aoi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 323)
@@ -74,6 +72,7 @@ offset_bottom = 96.0
 vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Node2D"]
+layout_mode = 0
 offset_left = -50.0
 offset_top = -64.0
 offset_right = -26.0
@@ -81,6 +80,7 @@ offset_bottom = -40.0
 button_pressed = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Node2D"]
+layout_mode = 0
 offset_left = -23.0
 offset_top = -69.0
 offset_right = 86.0

@@ -13,12 +13,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var start = get_global_mouse_position()
 	var planets = p_manager.get_all()
-	var points = simulate_path(start, initial_velocity, planets, course_length, step)
-	draw_course(points)
+	var _points = simulate_path(start, initial_velocity, planets, course_length, step)
+	draw_course(_points)
 
-func draw_course(points: PackedVector2Array) -> void:
+func draw_course(_points: PackedVector2Array) -> void:
 	clear_points()
-	for point in points:
+	for point in _points:
 		add_point(point)
 
 func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, steps: int, dt: float) -> PackedVector2Array:
