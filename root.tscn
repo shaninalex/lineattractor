@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://pj8oxgiqjgf5"]
+[gd_scene load_steps=7 format=3 uid="uid://pj8oxgiqjgf5"]
 
 [ext_resource type="Script" uid="uid://dfh2ok1lx71wg" path="res://init_map.gd" id="1_28aoi"]
 [ext_resource type="Shader" uid="uid://cfebarb8qhxqv" path="res://circle.gdshader" id="1_pq8q7"]
 [ext_resource type="Script" uid="uid://s7w5cob65u8h" path="res://planet_item.gd" id="1_vvh5c"]
 [ext_resource type="Script" uid="uid://bh4wmhgd1qvw3" path="res://path.gd" id="2_pyidc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvh5c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_28aoi"]
 shader = ExtResource("1_pq8q7")
-shader_parameter/circle_color = Color(0.141176, 0.701961, 0.631373, 1)
+shader_parameter/circle_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnlp7"]
+shader = ExtResource("1_pq8q7")
+shader_parameter/circle_color = Color(0.240615, 0.378152, 0.999994, 1)
 
 [node name="MapRoot" type="Node2D"]
 script = ExtResource("1_28aoi")
@@ -19,16 +23,62 @@ position = Vector2(576, 323)
 script = ExtResource("2_pyidc")
 
 [node name="Ceres" type="Node2D" parent="."]
+position = Vector2(356, 92)
 script = ExtResource("1_vvh5c")
-planet_mass = 1000.0
+planet_mass = 10000.0
 planet_name = "Ceres"
-planet_color = Color(0.888542, 0.233902, 0.367368, 1)
-planet_size = 250.0
+planet_color = Color(0.516862, 0.545617, 0.77094, 1)
+planet_size = 150.0
 
 [node name="ColorRect" type="ColorRect" parent="Ceres"]
-material = SubResource("ShaderMaterial_vvh5c")
-offset_left = 419.0
-offset_top = 252.0
-offset_right = 459.0
-offset_bottom = 292.0
-scale = Vector2(0.50848, 0.50848)
+material = SubResource("ShaderMaterial_28aoi")
+offset_left = -76.0
+offset_top = -79.0
+offset_right = 74.0
+offset_bottom = 71.0
+
+[node name="Label" type="Label" parent="Ceres"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Enceladus" type="Node2D" parent="."]
+position = Vector2(447, 320)
+script = ExtResource("1_vvh5c")
+speed = 30.0
+planet_mass = 1000.0
+planet_name = "Enceladus"
+planet_color = Color(0.516862, 0.545617, 0.77094, 1)
+planet_size = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="Enceladus"]
+material = SubResource("ShaderMaterial_jnlp7")
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Label" type="Label" parent="Enceladus"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 456.0
+offset_right = 301.0
+offset_bottom = 635.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "TODO:
+- zoom
+- set path
+- adjust path
+- satelites move around planets
+- time forward/backward
+- Main star ( or a couple )"
+vertical_alignment = 2

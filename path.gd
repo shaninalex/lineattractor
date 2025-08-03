@@ -1,19 +1,50 @@
 extends Line2D
 
-@export var course_length: int = 100
-@export var step: int = 10
+@export var course_length: int = 10000
+@export var step: float = 0.05
+@export var G: float = 1000.0
+@export var initial_velocity: Vector2 = Vector2(0, -150)
 
 func _ready() -> void:
-	default_color = Color.AQUAMARINE
-	width = 1
+	default_color = Color.GREEN
+	width = 3
+	antialiased = true
 
 func _process(_delta: float) -> void:
 	var start = get_global_mouse_position()
-	update_course(start, Vector2.UP)
-	
-func update_course(start: Vector2, direction: Vector2):
+	var planets = p_manager.get_all()
+	var points = simulate_path(start, initial_velocity, planets, course_length, step)
+	draw_course(points)
+
+func draw_course(points: PackedVector2Array) -> void:
 	clear_points()
-	for i in course_length:
-		var point = start + direction * step * i
-		#path_manager.simulate_path()
+	for point in points:
 		add_point(point)
+
+func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, steps: int, dt: float) -> PackedVector2Array:
+	var path := PackedVector2Array()
+	var pos := start_pos
+	var vel := start_velocity
+
+	for i in steps:
+		var acc := Vector2.ZERO
+		for body in bodies:
+			var r : Vector2 = body.global_position - pos
+			var distance_sq := r.length_squared()
+			if distance_sq < 1.0:
+				continue
+			acc += G * body.planet_mass * r.normalized() / distance_sq
+		
+		vel += acc * dt
+		var new_pos := pos + vel * dt
+		
+		for body in bodies:
+			var planet_radius = body.planet_size / 2.0
+			if path_manager.segment_intersects_circle(pos, new_pos, body.global_position, planet_radius):
+				path.append(new_pos)
+				return path
+
+		pos = new_pos
+		path.append(pos)
+	
+	return path
