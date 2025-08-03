@@ -14,8 +14,10 @@ func _process(_delta: float) -> void:
 	if p_manager.get_all().is_empty():
 		return
 
-	var mouse_pos = get_viewport().get_mouse_position()
-	var start = get_parent().to_local(mouse_pos)
+	# Get mouse position relative to world
+	var start = get_parent().to_local(get_viewport().get_mouse_position())
+
+	# Simulate path from that position
 	var planets = p_manager.get_all()
 	var _points = simulate_path(start, initial_velocity, planets, course_length, step)
 	draw_course(_points)

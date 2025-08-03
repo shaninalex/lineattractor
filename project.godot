@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 p_manager="*res://core/scripts/planet_manager.gd"
 path_manager="*res://core/scripts/path_manager.gd"
 
+[display]
+
+window/size/mode=3
+
 [gui]
 
 theme/custom="uid://b3kq74llqlv3x"

@@ -50,12 +50,12 @@ offset_left = -40.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "zoom - mouse wheel up/down"
+text = "esc - close program
+zoom - mouse wheel up/down"
+horizontal_alignment = 2
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("world")]
-position = Vector2(576, 323)
-editor_draw_limits = true
-editor_draw_drag_margin = true
+position = Vector2(576, 319)
 script = ExtResource("1_jnlp7")
 world = NodePath("../world")
 
@@ -63,9 +63,9 @@ world = NodePath("../world")
 position = Vector2(576, 323)
 
 [node name="path" type="Line2D" parent="world"]
-position = Vector2(-576, -323)
+position = Vector2(-2, 11)
 script = ExtResource("2_pyidc")
 course_length = 1000
 
 [node name="Planets" type="Node2D" parent="world"]
-position = Vector2(-576, -323)
+position = Vector2(-2, 11)

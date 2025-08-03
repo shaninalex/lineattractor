@@ -1,11 +1,20 @@
 extends Node2D
 
 @onready var planets: Node2D = $world/Planets
+@onready var world: Node2D = $world
+@onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
 	load_planets_from_json("res://resources/plantes.json")
 	await get_tree().process_frame
 	p_manager.is_ready = true
+	var center := get_viewport_rect().size / 2
+	world.position = center
+	camera.position = center
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
 
 func load_planets_from_json(path: String) -> void:
 	var file = FileAccess.open(path, FileAccess.READ)
