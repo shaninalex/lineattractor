@@ -10,7 +10,7 @@ extends Node2D
 @export var planet_name: String
 @export var planet_color: Color
 @export var planet_size: float
-@export var move: bool = true
+@export var move: bool = false
 
 func _ready() -> void:
 	planet.planet_mass = planet_mass

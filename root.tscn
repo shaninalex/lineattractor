@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://pj8oxgiqjgf5"]
+[gd_scene load_steps=8 format=3 uid="uid://pj8oxgiqjgf5"]
 
+[ext_resource type="Script" uid="uid://g6nolwbumvsk" path="res://core/camera.gd" id="1_jnlp7"]
 [ext_resource type="Shader" uid="uid://cfebarb8qhxqv" path="res://materials/circle.gdshader" id="1_pq8q7"]
 [ext_resource type="Script" uid="uid://s7w5cob65u8h" path="res://core/planet_item.gd" id="1_vvh5c"]
 [ext_resource type="Script" uid="uid://bh4wmhgd1qvw3" path="res://core/path.gd" id="2_pyidc"]
@@ -17,6 +18,7 @@ shader_parameter/circle_color = Color(0.240615, 0.378152, 0.999994, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 323)
+script = ExtResource("1_jnlp7")
 
 [node name="Line2D" type="Line2D" parent="."]
 script = ExtResource("2_pyidc")
@@ -77,7 +79,6 @@ offset_left = -50.0
 offset_top = -64.0
 offset_right = -26.0
 offset_bottom = -40.0
-button_pressed = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Node2D"]
 layout_mode = 0

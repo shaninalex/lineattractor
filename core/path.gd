@@ -7,7 +7,7 @@ extends Line2D
 
 func _ready() -> void:
 	default_color = Color.GREEN
-	width = 3
+	width = 1
 	antialiased = true
 
 func _process(_delta: float) -> void:
