@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 p_manager="*res://core/scripts/planet_manager.gd"
 path_manager="*res://core/scripts/path_manager.gd"
 
+[gui]
+
+theme/custom="uid://b3kq74llqlv3x"
+
 [physics]
 
 2d/default_gravity=0.0

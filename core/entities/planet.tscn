@@ -1,21 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhyej5vfotv4l"]
+[gd_scene load_steps=2 format=3 uid="uid://dhyej5vfotv4l"]
 
 [ext_resource type="Script" uid="uid://s7w5cob65u8h" path="res://core/scripts/planet.gd" id="1_5f2ok"]
-[ext_resource type="Shader" uid="uid://cfebarb8qhxqv" path="res://materials/circle.gdshader" id="1_ggsie"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5f2ok"]
-shader = ExtResource("1_ggsie")
-shader_parameter/circle_color = Color(1, 1, 1, 1)
 
 [node name="Planet" type="Node2D"]
 script = ExtResource("1_5f2ok")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_5f2ok")
-offset_left = -76.0
-offset_top = -79.0
-offset_right = 74.0
-offset_bottom = 71.0
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

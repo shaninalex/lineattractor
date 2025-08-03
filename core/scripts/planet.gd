@@ -1,7 +1,7 @@
 class_name Planet extends Node2D
 
-@onready var _colorRect: ColorRect = $ColorRect
 @onready var _label: Label = $Label
+
 @export var speed: float = 1
 @export var planet_mass: float
 @export var planet_name: String
@@ -10,13 +10,23 @@ class_name Planet extends Node2D
 @export var move: bool = false
 
 func _ready() -> void:
-	_label.text = planet_name
-	var mat := _colorRect.material as ShaderMaterial
-	mat.set_shader_parameter("circle_color", planet_color)
-	# TODO: position colorRect
-	#_colorRect.set_size(Vector2(planet_size, planet_size))
-	#_colorRect.position = Vector2(planet_size, planet_size)
+	update_visuals()
 
 func _process(delta: float) -> void:
 	if move:
 		global_position.x += speed * delta
+
+func _draw() -> void:
+	# planet circle
+	var radius = planet_size * 0.5
+	draw_circle(Vector2.ZERO, radius, planet_color)
+
+func update_visuals() -> void:
+	var half_size: float = planet_size * 0.5
+	var center: Vector2 = Vector2(-half_size, -half_size)
+
+	# label
+	_label.text = planet_name
+	await get_tree().process_frame  # Wait 1 frame for label size to update
+	var label_size = _label.get_minimum_size()
+	_label.position = Vector2(-label_size.x / 2.0, -label_size.y / 2.0)

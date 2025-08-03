@@ -33,32 +33,14 @@ script = ExtResource("1_l8v81")
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("5_jnlp7")
 
-[node name="Node2D" type="Label" parent="UI"]
-offset_left = 56.0
-offset_top = 73.0
-offset_right = 57.0
-offset_bottom = 96.0
-vertical_alignment = 1
-
-[node name="CheckBox" type="CheckBox" parent="UI/Node2D"]
-layout_mode = 0
-offset_left = -50.0
-offset_top = -64.0
-offset_right = -26.0
-offset_bottom = -40.0
-
-[node name="Label" type="Label" parent="UI/Node2D"]
-layout_mode = 0
-offset_left = -23.0
-offset_top = -69.0
-offset_right = 86.0
-offset_bottom = -40.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+[node name="MovePlanetsCheckBox" type="CheckBox" parent="UI"]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 124.0
+offset_bottom = 25.0
 text = "move planets"
-vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Controls" type="Label" parent="UI"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -82,4 +64,3 @@ script = ExtResource("2_pyidc")
 course_length = 1000
 
 [node name="Planets" type="Node2D" parent="."]
-unique_name_in_owner = true

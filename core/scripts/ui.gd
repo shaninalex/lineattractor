@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var movePlanets: CheckBox = $Node2D/CheckBox
+@onready var movePlanets: CheckBox = $MovePlanetsCheckBox
 
 func _ready() -> void:
 	movePlanets.connect("pressed", Callable(self, "_on_move_checkbox_pressed"))
