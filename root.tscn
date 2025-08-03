@@ -50,8 +50,9 @@ offset_left = -40.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "esc - close program
-zoom - mouse wheel up/down"
+text = "LMB+MouseMove - move around the map
+esc 							- close program
+zoom 						- mouse wheel up/down"
 horizontal_alignment = 2
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("world")]

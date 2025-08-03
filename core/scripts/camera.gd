@@ -43,10 +43,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func apply_zoom() -> void:
 	var mouse_pos := get_viewport().get_mouse_position()
 	var world_mouse_before := world.to_local(mouse_pos)
-
 	target_scale = Vector2.ONE * target_zoom
-
-	var world_mouse_after := world.to_local(mouse_pos)
+	var world_mouse_after := (mouse_pos - target_position) / target_scale
 	var offset := world_mouse_after - world_mouse_before
 	target_position += offset * target_scale
 
