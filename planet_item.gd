@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var planet: Planet = Planet.new()
 @onready var _colorRect: ColorRect = $ColorRect
 @onready var _label: Label = $Label
@@ -9,6 +10,7 @@ extends Node2D
 @export var planet_name: String
 @export var planet_color: Color
 @export var planet_size: float
+@export var move: bool = true
 
 func _ready() -> void:
 	planet.planet_mass = planet_mass
@@ -29,4 +31,5 @@ func _ready() -> void:
 	p_manager.register_planet(self)
 
 func _process(delta: float) -> void:
-	global_position.x += speed * delta
+	if move:
+		global_position.x += speed * delta
