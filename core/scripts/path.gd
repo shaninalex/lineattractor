@@ -11,6 +11,9 @@ func _ready() -> void:
 	antialiased = true
 
 func _process(_delta: float) -> void:
+	if p_manager.get_all().is_empty():
+		return
+
 	var start = get_global_mouse_position()
 	var planets = p_manager.get_all()
 	var _points = simulate_path(start, initial_velocity, planets, course_length, step)
@@ -29,6 +32,8 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, s
 	for i in steps:
 		var acc := Vector2.ZERO
 		for body in bodies:
+			if not body.is_inside_tree():
+				continue
 			var r : Vector2 = body.global_position - pos
 			var distance_sq := r.length_squared()
 			if distance_sq < 1.0:

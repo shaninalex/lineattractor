@@ -1,0 +1,10 @@
+[
+  {
+	"name": "Ulnerion",
+	"mass": 5.972e24,
+	"color": [0.8, 0.5, 1.0],
+	"size": 64,
+	"position": [100, 500],
+	"satelites": []
+  }
+]

@@ -1,7 +1,5 @@
 extends Node2D
 
-
-@onready var planet: Planet = Planet.new()
 @onready var _colorRect: ColorRect = $ColorRect
 @onready var _label: Label = $Label
 
@@ -13,10 +11,10 @@ extends Node2D
 @export var move: bool = false
 
 func _ready() -> void:
-	planet.planet_mass = planet_mass
-	planet.planet_name = planet_name
-	planet.planet_color = planet_color
-	planet.planet_size = planet_size
+	planet_mass = planet_mass
+	planet_name = planet_name
+	planet_color = planet_color
+	planet_size = planet_size
 	
 	_label.text = planet_name
 	# draw planet
@@ -27,8 +25,6 @@ func _ready() -> void:
 	#_colorRect.set_size(Vector2(planet_size, planet_size))
 	#_colorRect.position = Vector2(planet_size, planet_size)
 	
-	# register planet
-	p_manager.register_planet(self)
 
 func _process(delta: float) -> void:
 	if move:

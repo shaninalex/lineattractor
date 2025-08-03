@@ -23,7 +23,6 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array[Pl
 	
 	return path
 
-
 func segment_intersects_circle(p1: Vector2, p2: Vector2, center: Vector2, radius: float) -> bool:
 	var d := p2 - p1
 	var f := p1 - center

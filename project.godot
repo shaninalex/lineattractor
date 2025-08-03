@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-p_manager="*res://core/planet_manager.gd"
-path_manager="*res://core/path_manager.gd"
+p_manager="*res://core/scripts/planet_manager.gd"
+path_manager="*res://core/scripts/path_manager.gd"
 
 [physics]
 
