@@ -2,7 +2,7 @@ extends Line2D
 
 @export var course_length: int = 10000
 @export var step: float = 0.05
-@export var G: float = 1000.0
+@export var G: float = 10000.0
 @export var initial_velocity: Vector2 = Vector2(0, -150)
 
 func _ready() -> void:
@@ -38,14 +38,16 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, s
 			var distance_sq := r.length_squared()
 			if distance_sq < 1.0:
 				continue
-			acc += G * body.planet_mass * r.normalized() / distance_sq
+				
+			var scaled_mass = body.planet_mass / 1e22
+			acc += G * scaled_mass * r.normalized() / distance_sq
 		
 		vel += acc * dt
 		var new_pos := pos + vel * dt
-		
 		for body in bodies:
 			var planet_radius = body.planet_size / 2.0
 			if path_manager.segment_intersects_circle(pos, new_pos, body.global_position, planet_radius):
+				print("Hit planet ", body.planet_name, " at ", new_pos)
 				path.append(new_pos)
 				return path
 

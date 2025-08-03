@@ -26,5 +26,6 @@ func load_planets_from_json(path: String) -> void:
 		planet_node.planet_color = Color(planet_dict["color"][0], planet_dict["color"][1], planet_dict["color"][2])
 		planet_node.planet_size = planet_dict["size"]
 		planet_node.position = Vector2(planet_dict["position"][0], planet_dict["position"][1])
+		planet_node.speed = planet_dict["speed"]
 		planets.add_child(planet_node)
 		p_manager.register_planet(planet_node)

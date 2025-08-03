@@ -60,3 +60,4 @@ script = ExtResource("2_pyidc")
 course_length = 1000
 
 [node name="Planets" type="Node2D" parent="."]
+unique_name_in_owner = true
