@@ -15,6 +15,11 @@ run/main_scene="uid://pj8oxgiqjgf5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+p_manager="*res://planet_manager.gd"
+path_manager="*res://path_manager.gd"
+
 [physics]
 
 2d/default_gravity=0.0
