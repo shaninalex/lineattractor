@@ -47,7 +47,8 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, s
 		for body in bodies:
 			var planet_radius = body.planet_size / 2.0
 			if path_manager.segment_intersects_circle(pos, new_pos, body.global_position, planet_radius):
-				print("Hit planet ", body.planet_name, " at ", new_pos)
+				# TODO: signal about hit the planet
+				#print("Hit planet ", body.planet_name, " at ", new_pos)
 				path.append(new_pos)
 				return path
 

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://oa06nnl71tr8"]
+
+[ext_resource type="Shader" uid="uid://5iarf44i4eyc" path="res://materials/map.gdshader" id="1_b3w07"]
+[ext_resource type="Script" uid="uid://bmtny2vnuopdn" path="res://core/scripts/background.gd" id="2_gl03x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4xrq"]
+shader = ExtResource("1_b3w07")
+shader_parameter/horizontalMovement = 2.98024e-08
+shader_parameter/verticalMovement = 2.98024e-08
+shader_parameter/frequencyStar = 0.0
+shader_parameter/sizeStar = 10.0
+shader_parameter/brightnessStar = 1.0
+shader_parameter/shineFrequencyStar = 1.0
+shader_parameter/transparencyStar = 0.0
+shader_parameter/starIterations = 1
+shader_parameter/frequencyBgStar = 0.996
+shader_parameter/shineFrequencyBgStar = 1.0
+shader_parameter/transparencyBgStar = 0.52
+shader_parameter/colorBackground = Color(0.100804, 0.114135, 0.140575, 1)
+shader_parameter/transparencyBackground = 0.0
+shader_parameter/seed = 41.0
+
+[node name="Environment" type="CanvasLayer"]
+layer = -128
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_p4xrq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gl03x")
