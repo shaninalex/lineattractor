@@ -52,15 +52,20 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "zoom - mouse wheel up/down"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("world")]
 position = Vector2(576, 323)
-limit_smoothed = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("1_jnlp7")
+world = NodePath("../world")
 
-[node name="path" type="Line2D" parent="."]
+[node name="world" type="Node2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="path" type="Line2D" parent="world"]
+position = Vector2(-576, -323)
 script = ExtResource("2_pyidc")
 course_length = 1000
 
-[node name="Planets" type="Node2D" parent="."]
+[node name="Planets" type="Node2D" parent="world"]
+position = Vector2(-576, -323)

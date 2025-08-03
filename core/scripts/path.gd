@@ -14,7 +14,8 @@ func _process(_delta: float) -> void:
 	if p_manager.get_all().is_empty():
 		return
 
-	var start = get_global_mouse_position()
+	var mouse_pos = get_viewport().get_mouse_position()
+	var start = get_parent().to_local(mouse_pos)
 	var planets = p_manager.get_all()
 	var _points = simulate_path(start, initial_velocity, planets, course_length, step)
 	draw_course(_points)
@@ -34,7 +35,7 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, s
 		for body in bodies:
 			if not body.is_inside_tree():
 				continue
-			var r : Vector2 = body.global_position - pos
+			var r : Vector2 = body.position - pos
 			var distance_sq := r.length_squared()
 			if distance_sq < 1.0:
 				continue
@@ -46,7 +47,7 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array, s
 		var new_pos := pos + vel * dt
 		for body in bodies:
 			var planet_radius = body.planet_size / 2.0
-			if path_manager.segment_intersects_circle(pos, new_pos, body.global_position, planet_radius):
+			if path_manager.segment_intersects_circle(pos, new_pos, body.position, planet_radius):
 				# TODO: signal about hit the planet
 				#print("Hit planet ", body.planet_name, " at ", new_pos)
 				path.append(new_pos)

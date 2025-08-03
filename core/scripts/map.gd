@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var planets: Node2D = $Planets
+@onready var planets: Node2D = $world/Planets
 
 func _ready() -> void:
 	load_planets_from_json("res://resources/plantes.json")

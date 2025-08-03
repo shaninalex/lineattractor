@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if move:
-		global_position.x += speed * delta
+		position.x += speed * delta
 
 func _draw() -> void:
 	# planet circle

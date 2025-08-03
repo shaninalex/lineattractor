@@ -9,7 +9,7 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array[Pl
 		var acc := Vector2.ZERO
 
 		for body in bodies:
-			var r: Vector2 = body.global_position - pos
+			var r: Vector2 = body.position - pos
 			var distance_sq := r.length_squared()
 			if distance_sq < 1.0:
 				continue
