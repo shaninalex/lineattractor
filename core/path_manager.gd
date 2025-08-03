@@ -7,18 +7,22 @@ func simulate_path(start_pos: Vector2, start_velocity: Vector2, bodies: Array[Pl
 	
 	for i in steps:
 		var acc := Vector2.ZERO
+
 		for body in bodies:
-			var r : Vector2 = body.global_position - pos
+			var r: Vector2 = body.global_position - pos
 			var distance_sq := r.length_squared()
 			if distance_sq < 1.0:
-				continue # avoid division by zero
-			acc += body.planet_mass * r.normalized() / distance_sq
+				continue
+
+			var gravity_acc := body.planet_mass * r.normalized() / distance_sq
+			acc += gravity_acc
 		
 		vel += acc * dt
 		pos += vel * dt
 		path.append(pos)
 	
 	return path
+
 
 func segment_intersects_circle(p1: Vector2, p2: Vector2, center: Vector2, radius: float) -> bool:
 	var d := p2 - p1
