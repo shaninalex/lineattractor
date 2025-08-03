@@ -1,6 +1,6 @@
 extends Line2D
 
-@export var course_length: int = 10000
+@export var course_length: int = 1000
 @export var step: float = 0.05
 @export var G: float = 10000.0
 @export var initial_velocity: Vector2 = Vector2(0, -150)

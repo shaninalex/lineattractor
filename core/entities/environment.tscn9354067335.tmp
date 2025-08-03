@@ -2,14 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://5iarf44i4eyc" path="res://materials/map.gdshader" id="1_b3w07"]
 [ext_resource type="Script" uid="uid://dlvbr50t8jfdc" path="res://core/entities/environment.gd" id="1_gl03x"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gl03x"]
-particle_flag_disable_z = true
-emission_shape = 2
-emission_sphere_radius = 3000.0
-spread = 180.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
+[ext_resource type="Script" uid="uid://bmtny2vnuopdn" path="res://core/scripts/background.gd" id="2_gl03x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p4xrq"]
 shader = ExtResource("1_b3w07")
@@ -28,22 +21,11 @@ shader_parameter/colorBackground = Color(0.100804, 0.114135, 0.140575, 1)
 shader_parameter/transparencyBackground = 0.0
 shader_parameter/seed = 0.0
 
-[node name="Environment" type="Node2D"]
-z_index = -4096
-z_as_relative = false
+[node name="Environment" type="CanvasLayer"]
+layer = -128
 script = ExtResource("1_gl03x")
 
-[node name="StarParticles" type="GPUParticles2D" parent="."]
-position = Vector2(574, 328)
-amount = 1000
-lifetime = 3.0
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_gl03x")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -128
-
-[node name="Background" type="ColorRect" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_p4xrq")
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,3 +33,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("2_gl03x")
+
+[node name="StarParticles" type="GPUParticles2D" parent="."]
